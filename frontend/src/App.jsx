@@ -2,9 +2,11 @@ import { useState, useEffect } from "react"
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts"
 
 const NODES = [
-  { name: "midnight-coast-media", label: "2011 MBP — Ubuntu Server", url: "http://100.119.46.124:8001" },
-  { name: "midnight-runner", label: "2017 MBP — macOS Ventura", url: "http://100.126.44.69:8002" }
+  { name: "midnight-coast-media", label: "2011 MBP — Ubuntu Server", url: import.meta.env.VITE_NODE1_URL },
+  { name: "midnight-runner", label: "2017 MBP — macOS Ventura", url: import.meta.env.VITE_NODE2_URL }
 ]
+
+
 
 function MetricCard({ title, value, unit, percent }) {
   return (
