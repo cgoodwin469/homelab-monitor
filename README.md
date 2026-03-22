@@ -10,6 +10,8 @@ Tracks real-time system metrics (CPU, RAM, disk) across multiple nodes and displ
 
 ## Live Demo
 
+🔗 [homelab-monitor-zeta.vercel.app](https://homelab-monitor-zeta.vercel.app)
+
 ![Dashboard Screenshot](docs/screenshots/dashboard.png)
 ![Mobile Screenshot](docs/screenshots/mobile1.png)
 ![Mobile Screenshot 2](docs/screenshots/mobile2.png)
