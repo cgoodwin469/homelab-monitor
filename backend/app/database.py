@@ -1,6 +1,7 @@
 import sqlite3
 import psutil
 from datetime import datetime
+import pytz
 import threading
 import time
 
@@ -28,7 +29,7 @@ def log_metrics():
         INSERT INTO metrics (timestamp, cpu_percent, ram_percent, disk_percent)
         VALUES (?, ?, ?, ?)
     """, (
-        datetime.now().isoformat(),
+        datetime.now(pytz.timezone("America/New_York")).isoformat(),
         psutil.cpu_percent(interval=1),
         psutil.virtual_memory().percent,
         psutil.disk_usage("/").percent
