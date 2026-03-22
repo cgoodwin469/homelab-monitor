@@ -1,5 +1,3 @@
-Here you go:
-
 # Architecture Overview
 
 ## System Design
