@@ -19,20 +19,18 @@ Tracks real-time system metrics (CPU, RAM, disk) across multiple nodes and displ
 ---
 
 ## Architecture
-
-
-
+```
 M4 MacBook Air (Dev)
-|
-GitHub
-|
+       |
+   GitHub
+       |
 2011 MBP (Ubuntu) ←→ Tailscale VPN ←→ 2017 MBP (macOS)
 FastAPI + SQLite                        FastAPI Agent
 Port 8001                               Port 8002
-\                               /
-——————— React Dashboard ———————
-Accessible anywhere
-
+       \                               /
+        ——————— React Dashboard ———————
+              Accessible anywhere
+```
 
 | Node | Hardware | OS | Role |
 |------|----------|----|------|
@@ -88,18 +86,17 @@ Accessible anywhere
 
 ## Deployment
 
-Each node runs a FastAPI service via `nohup` in a Python virtual environment. Updates are deployed by pushing to GitHub and pulling on each node.
-
+Each node runs a FastAPI service via systemd for automatic startup and crash recovery. Updates are deployed by pushing to GitHub and pulling on each node.
 ```bash
 # On any node
 git pull origin main
-pkill -f uvicorn
-nohup uvicorn app.main:app --host 0.0.0.0 --port 8001 &
+sudo systemctl restart homelab-monitor
+```
 
+---
 
-Author
-Chaz Goodwin
+## Author
+
+**Chaz Goodwin**
 Homelab enthusiast | AWS Cloud Associate candidate
-GitHub
-
-
+[GitHub](https://github.com/cgoodwin469)
